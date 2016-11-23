@@ -7,22 +7,22 @@ import './App.css';
 class App extends Component {
    constructor(props) {
       super(props);
+
       this.state={
          weather: [],
-         // value: '';
+         value: 'Cincinnati',
+         city: 'Cincinnati',
+
       };
-   };
+    this.changeCity = this.changeCity.bind(this);
+   }
 
    componentWillMount() {
       $.get(`http://api.openweathermap.org/data/2.5/forecast/daily?q=${this.state.value}&cnt=7&APPID=f5e364968f16eed20ecfaf7efa2d6303&units=imperial`, (result) => {
          this.setState({
             weather: result.list,
-            value: 'Cincinnati',
-            city: 'Cincinnati',
+            city: result.city.name,
          });
-
-          
-
           console.log(result);
       });
    }

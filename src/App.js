@@ -14,27 +14,51 @@ class App extends Component {
    };
 
    componentWillMount() {
-      $.get(`http://api.openweathermap.org/data/2.5/forecast/daily?q=Cincinnati&cnt=7&APPID=f5e364968f16eed20ecfaf7efa2d6303&units=imperial`, (result) => {
+      $.get(`http://api.openweathermap.org/data/2.5/forecast/daily?q=${this.state.value}&cnt=7&APPID=f5e364968f16eed20ecfaf7efa2d6303&units=imperial`, (result) => {
          this.setState({
             weather: result.list,
+            value: 'Cincinnati',
+            city: 'Cincinnati',
          });
-         console.log(result);
+
+          
+
+          console.log(result);
       });
    }
 
-   
+   changeCity(e) {
+      this.setState({
+        value: e.target.value,
+      });
+   }
+
+   findLocation(e) {
+      $.get(`http://api.openweathermap.org/data/2.5/forecast/daily?q=${this.state.value}&cnt=7&APPID=f5e364968f16eed20ecfaf7efa2d6303&units=imperial`, (result) => {
+         this.setState({
+            weather: result.list,
+            value: '',
+            city: result.city.name,
+         });
+      });
+   }
 
    render() {
       return ( 
-         <div className="App">
-         <div className="App-header">
-         <img src={ sun } className="App-logo" alt="logo"/>
-         <h2> Your weather forecast: </h2></div> {
+        <div className="App">
+        <div className="App-header">
+        <img src={ sun } className="App-logo" alt="logo"/>
+        <h2> Your weather forecast for {this.state.city}: </h2>
+          <form onSubmit={this.findLocation}>
+            <input type="text" value={this.state.value} onChange={this.changeCity} placeholder="Enter your city here..." />
+            <button type="submit">Go</button>
+          </form>
+        </div> {
             this.state.weather.map((forecast) =>
-               <Day taco={ forecast }
-               />
+               <Day taco={ forecast }/>
             )
-         } </div>
+         } 
+        </div>
       );
    }
 }

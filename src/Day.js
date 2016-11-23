@@ -11,7 +11,6 @@ class Day extends Component {
         <p>Hi: {this.props.taco.temp.max}</p>
         <p>Low: {this.props.taco.temp.min}</p>
         <p>Conditions: {this.props.taco.weather[0].description}</p>
-
       </div>
     );
   }

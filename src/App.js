@@ -15,6 +15,7 @@ class App extends Component {
 
       };
     this.changeCity = this.changeCity.bind(this);
+    this.findLocation = this.findLocation.bind(this);
    }
 
    componentWillMount() {
@@ -34,6 +35,7 @@ class App extends Component {
    }
 
    findLocation(e) {
+      e.preventDefault();
       $.get(`http://api.openweathermap.org/data/2.5/forecast/daily?q=${this.state.value}&cnt=7&APPID=f5e364968f16eed20ecfaf7efa2d6303&units=imperial`, (result) => {
          this.setState({
             weather: result.list,

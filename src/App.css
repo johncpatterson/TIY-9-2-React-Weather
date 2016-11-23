@@ -17,12 +17,16 @@
 .App-intro {
    font-size: large;
 }
+input {
+  margin-top: 10px;
+  margin-bottom: 30px;
+}
 
 @keyframes App-logo-spin {
    from {
-      transform: translateX(-10in) rotate(0deg);
+      transform: rotate(0deg);
    }
    to {
-      transform: translateX(8in) rotate(360deg);
+      transform: rotate(360deg);
    }
 }

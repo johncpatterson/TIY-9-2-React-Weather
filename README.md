@@ -2,7 +2,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 ---
 
-The Iron Yard week 9, day 2 assignment.  The goal of this assignment was to re-create our earlier [weather app] (https://github.com/johncpatterson/TIY-3-4-Weather-App) using [React] (https://facebook.github.io/react/).
+**The Iron Yard week 9, day 2 assignment.  The goal of this assignment was to re-create our earlier [weather app] (https://github.com/johncpatterson/TIY-3-4-Weather-App) using [React] (https://facebook.github.io/react/).**
 
 ---
 

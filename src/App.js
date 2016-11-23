@@ -10,8 +10,8 @@ class App extends Component {
 
       this.state={
          weather: [],
-         value: 'Cincinnati',
-         city: 'Cincinnati',
+         value: 'Miami',
+         
 
       };
     this.changeCity = this.changeCity.bind(this);
@@ -56,8 +56,8 @@ class App extends Component {
             <button type="submit">Go</button>
           </form>
         </div> {
-            this.state.weather.map((forecast) =>
-               <Day taco={ forecast }/>
+            this.state.weather.map((forecast, index) =>
+               <Day key={index} taco={ forecast }/>
             )
          } 
         </div>
